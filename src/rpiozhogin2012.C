@@ -47,8 +47,11 @@ double RPIOZHOGIN2012::getDensity(double L, double lambda){
   ============================================================================*/
 double RPIOZHOGIN2012::getDensity(double L, double lambda, double lambdainv){
   
-  double lambdamax=acos(sqrt(8371/(L*6371)));
-  if(lambda>lambdamax)
+  double lambdamax=acos(sqrt(8371/(L*6371)))/M_PI*180;
+  
+  if(lambda<-lambdamax)
+    lambda=-lambdamax;
+  else if(lambda>lambdamax)
     lambda=lambdamax;
   
   double NEQ=exp(log(10)*(A+B*L));
