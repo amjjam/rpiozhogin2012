@@ -6,21 +6,21 @@ CPP=g++
 RPIOZHOGIN2012_SRC=rpiozhogin2012.C
 RPIOZHOGIN2012_OBJ=$(RPIOZHOGIN2012_SRC:.C=.o)
 
-build: libRpiozhogin2012.a libRpiozhogin2012.so
+build: libRpiOzhogin2012.a libRpiOzhogin2012.so
 
-libRpiozhogin2012.a: $(RPIOZHOGIN2012_OBJ)
+libRpiOzhogin2012.a: $(RPIOZHOGIN2012_OBJ)
 	ar rc $@ $^
 
-libRpiozhogin2012.so: $(RPIOZHOGIN2012_OBJ)
+libRpiOzhogin2012.so: $(RPIOZHOGIN2012_OBJ)
 	$(CPP) -shared -Wl,-soname,$@ -o $@ $^
 
-install: $(libdir)/libRpiozhogin2012.a $(libdir)/libRpiozhogin2012.so
+install: $(libdir)/libRpiOzhogin2012.a $(libdir)/libRpiOzhogin2012.so
 
-$(libdir)/libRpiozhogin2012.a $(libdir)/libRpiozhogin2012.so: libRpiozhogin2012.a libRpiozhogin2012.so
-	cp libRpiozhogin2012.a libRpiozhogin2012.so $(libdir)
+$(libdir)/libRpiOzhogin2012.a $(libdir)/libRpiOzhogin2012.so: libRpiOzhogin2012.a libRpiOzhogin2012.so
+	cp libRpiOzhogin2012.a libRpiOzhogin2012.so $(libdir)
 
 uninstall:
-	- rm -f $(libdir)/libRpiozhogin2012.a $(libdir)/libRpiozhogin2012.so
+	- rm -f $(libdir)/libRpiOzhogin2012.a $(libdir)/libRpiOzhogin2012.so
 
 clean:
-	- rm -f libRpiozhogin2012.a libRpiozhogin2012.so $(RPIOZHOGIN2012_OBJ)
+	- rm -f libRpiOzhogin2012.a libRpiOzhogin2012.so $(RPIOZHOGIN2012_OBJ)
